@@ -504,6 +504,7 @@ internal sealed partial class BusinessLogic : IUIRequest, ILogicNotify
         static List<string> GetKeyNames(string s)
         {
             List<string> sections = new();
+
             string[] lines = s.Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var line in lines)
