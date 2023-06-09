@@ -6,7 +6,6 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>True</UseWPF>
 		<ApplicationIcon>app.ico</ApplicationIcon>
-		<BaseOutputPath>$(SolutionDir)bin\</BaseOutputPath>
 		<PreserveCompilationContext>False</PreserveCompilationContext>
 		<PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>

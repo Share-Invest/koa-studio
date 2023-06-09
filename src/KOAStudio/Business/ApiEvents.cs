@@ -1,6 +1,7 @@
-﻿using KHOpenApi.NET;
-using KOAStudio.Core.Helpers;
-using KOAStudio.Core.Models;
+﻿using KOAStudio.Core.Models;
+
+using ShareInvest.Events;
+
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -45,8 +46,10 @@ internal sealed partial class BusinessLogic
                     }
                 timer.Stop();
                 int nTotalDataCount = 0;
-                if (trData.OutputSingle != null) nTotalDataCount += trData.OutputSingle.Count;
-                if (trData.OutputMuti != null) nTotalDataCount += (trData.OutputMuti.Count * nRepeatCount);
+                if (trData.OutputSingle != null)
+                    nTotalDataCount += trData.OutputSingle.Count;
+                if (trData.OutputMuti != null)
+                    nTotalDataCount += (trData.OutputMuti.Count * nRepeatCount);
                 lines[0] = string.Format("{0}, 데이터수집 ({1:n0}개, {2:n0}uS)"
                     , lines[0]
                     , nTotalDataCount
@@ -69,7 +72,9 @@ internal sealed partial class BusinessLogic
         {
             // 조건검색 요청 결과
             string[] szCodeAndPrices = e.strCodeList.Split(';', StringSplitOptions.RemoveEmptyEntries);
-            StringBuilder szViewText = new StringBuilder();
+
+            StringBuilder szViewText = new();
+
             szViewText.AppendLine();
             szViewText.AppendLine("----------------------조건검색 요청 결과----------------------");
             szViewText.AppendLine();
@@ -134,7 +139,8 @@ internal sealed partial class BusinessLogic
         if (e.lRet == 1) // 정상
         {
             // 조건검색기 항목 로딩
-            if (MapCondNameToIndex.Count > 0) return;
+            if (MapCondNameToIndex.Count > 0)
+                return;
             string[] lists = axOpenAPI!.GetConditionNameList().Split(';', StringSplitOptions.RemoveEmptyEntries);
             foreach (var item in lists)
             {
