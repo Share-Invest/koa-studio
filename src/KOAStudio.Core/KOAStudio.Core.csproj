@@ -1,11 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<LangVersion>default</LangVersion>
-		<TargetFrameworks>net48;net7.0-windows</TargetFrameworks>
+		<TargetFrameworks>net7.0-windows</TargetFrameworks>
 		<Nullable>enable</Nullable>
-		<UseWPF>true</UseWPF>
-		<Platforms>x86;x64</Platforms>
+		<UseWPF>True</UseWPF>
+		<PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 
 	<ItemGroup>

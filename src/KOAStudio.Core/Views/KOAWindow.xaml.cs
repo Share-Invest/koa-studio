@@ -13,6 +13,8 @@ namespace KOAStudio.Core.Views
         public KOAWindow()
         {
             InitializeComponent();
+
+
         }
     }
 
